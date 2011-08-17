@@ -1,0 +1,5 @@
+vim_plugin_task "DrawIt", "https://github.com/jean/DrawIt.git"
+vim_plugin_task "AutoClose", "https://github.com/vim-scripts/AutoClose.git"
+vim_plugin_task "yankring", "https://github.com/chrismetcalf/vim-yankring.git"
+vim_plugin_task "bufonly", "https://github.com/duff/vim-bufonly.git"
+vim_plugin_task "bufexplorer", "https://github.com/markabe/bufexplorer.git"
