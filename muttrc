@@ -1,0 +1,67 @@
+#
+# file: ~/.muttrc
+#
+
+# Receving Mail
+set imap_user  = nwomack
+#set imap_pass  = nopassword
+set folder     = imaps://mail.eve-usa.com
+set spoolfile  = +Inbox
+set postponed  = imaps://mail.eve-usa.com/Drafts
+set record     = imaps://mail.eve-usa.com/Sent
+
+# Sending Mail
+set realname = "Nathan Womack"
+set smtp_url = smtp://smtpeve:eveteam@mail.eve-usa.com:587
+set from     = nathan.womack@eve-team.com
+
+# option "+/^$" puts cursor in first blank line
+#set editor="vim -c 'set tw=70 et' '+/^$'"
+set editor="vim -c '+/^$'"
+set edit_headers
+
+set sort=threads # default sort messages by thread
+set sort_browser=reverse-date # showing mbox list default to newest first
+set sort_aux=reverse-last-date-received # showing threads with youngest message first
+
+set header_cache     = ~/.mutt/hcache
+set message_cachedir = ~/.mutt/mcache
+set certificate_file = ~/.mutt/certificates
+set ssl_client_cert  = ~/.mutt/nwomack.pem
+
+# Signature
+set signature        = ~/.mutt/signature
+set sig_on_top       # Above Quoted Text
+unset sig_dashes     # Remove the 2 dashes inserted above the signature
+
+set alias_file = ~/.mutt/aliases
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+set postpone = ask-no      # Don't Ask about postponing
+set ssl_starttls = yes     # activate TLS if available on the server
+set ssl_force_tls = yes    # always use SSL when connecting to a server
+unset imap_passive         # Don't wait to enter mailbox manually
+set imap_check_subscribed  # Automatically poll subscribed mailboxes for new mail
+set mail_check = 60        # Reduce polling frequency to a sane level
+set timeout = 10           # And poll the current mailbox more often
+set net_inc = 5            # Display download progress every 5K
+set hidden_host            # Hide host details
+set index_format = "%4C %Z%{%b %d %H:%M:%S}  %-35.35L  [%5c] %s"
+
+# Colors
+color hdrdefault white black  # headers white on black
+color header brightgreen black ^From:  # sender's name in green
+color quoted cyan black  # quoted text in blue
+color signature red black   # signature in red
+
+# Macros
+macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
+macro index gs "<change-folder>=Sent<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
+macro index gmtk "<change-folder>=MediaTek<enter>" "Go to MediaTek Folder"
+macro index grt "<change-folder>=RT<enter>" "Go to RT Folder"
+macro index \\srt "<save-message>=RT<enter>" "Save Message to RT Folder"
+macro index \\smtk "<save-message>=MediaTek<enter>" "Save Message to MediaTek Folder"
+
