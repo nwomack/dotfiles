@@ -1,0 +1,15 @@
+# mairix configuration file
+
+# the base where our mail is stored, and where we put the mairix database
+base=~/Mail/EVE
+database=~/.mairix/database
+
+# this needs to be a full path for our msearch script (which deletes the
+# mbox if it exists to replace it with new search results)
+mfolder=/Users/nathan/Mail/EVE/mairix
+
+# index everything in $base, recursively
+maildir=*...
+
+# don't index our mairix folder
+omit=mairix

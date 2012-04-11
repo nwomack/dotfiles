@@ -17,7 +17,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -25,8 +25,23 @@ ZSH_THEME="robbyrussell"
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:$PATH
+# Path -- General
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/scripts:$PATH"
+
+# Path -- Go
+export GOROOT=$HOME/go
+export PATH="$PATH:$GOROOT/bin"
+export PATH="/usr/local/Cellar/go-app-engine-64/1.6.3/share/go-app-engine-64:$PATH"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# I like vi
+export EDITOR="vim"
 set -o vi
+
+# Aliases
 alias ls='ls -GF'
 alias be='bundle exec'

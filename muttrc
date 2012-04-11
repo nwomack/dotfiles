@@ -23,6 +23,10 @@ macro pager d "<save-message>=Trash<enter>"
 bind index D delete-message
 bind pager D delete-message
 
+## Matrix Search Macros
+macro index,pager "\em"    "<shell-escape>$HOME/.mutt/msearch.sh " "Run a Mairix search"
+macro index,pager "\ef"    "<change-folder-readonly>=mairix\n" "Switch to Mairix search results"
+
 # Reading Mail
 set mbox_type   = Maildir
 set folder      = ~/Mail/EVE
