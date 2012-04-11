@@ -20,3 +20,6 @@ endfun
 
 " command to strip white space from any file
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
+
+" Ignore for CtrlP
+set wildignore+=*/vendor/bundle/*,*/tmp/*
