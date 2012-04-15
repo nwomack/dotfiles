@@ -24,24 +24,3 @@ DISABLE_AUTO_TITLE="true"
 #plugins=(ruby rails git osx bundler)
 
 source $ZSH/oh-my-zsh.sh
-
-# Path -- General
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/scripts:$PATH"
-
-# Path -- Go
-export GOROOT=$HOME/go
-export PATH="$PATH:$GOROOT/bin"
-export PATH="/usr/local/Cellar/go-app-engine-64/1.6.3/share/go-app-engine-64:$PATH"
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# I like vi
-export EDITOR="vim"
-set -o vi
-
-# Aliases
-alias ls='ls -GF'
-alias be='bundle exec'
