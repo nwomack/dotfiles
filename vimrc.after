@@ -23,3 +23,36 @@ nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 
 " Ignore for CtrlP
 set wildignore+=*/vendor/bundle/*,*/tmp/*
+
+" add Ack options - mainly want the ignore directory command.
+" taken from https://github.com/AndrewRadev/ack.vim
+function! s:AckOption(bang, ...)
+    for option in a:000
+        let remove      = (a:bang == '!')
+        let base_option = substitute(option, '^no', '', '')
+        let pattern     = '\v\s+--(no)?\V'.base_option
+
+        if remove
+            let replacement = ''
+        else
+            let replacement = ' --'.option
+        endif
+
+        if g:ackprg =~ pattern
+            let g:ackprg = substitute(g:ackprg, pattern, replacement, '')
+        else
+            let g:ackprg .= ' --'.option
+        endif
+    endfor
+endfunction
+
+function! s:AckIgnore(bang, ...)
+    for directory in a:000
+        silent call s:AckOption(a:bang, 'ignore-dir="' . directory . '"')
+    endfor
+endfunction
+
+command! -bang -nargs=* -complete=file AckIgnore call s:AckIgnore('<bang>', <f-args>)
+
+" Ignore vendor directoy for Ack searches
+AckIgnore! vendor
