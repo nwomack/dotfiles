@@ -26,9 +26,9 @@ DISABLE_AUTO_TITLE="true"
 source $ZSH/oh-my-zsh.sh
 
 # Path -- General
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+#export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/dotfiles/scripts:$PATH"
 
 # Path -- Go
 #export GOROOT=$HOME/go
