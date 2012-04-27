@@ -30,19 +30,17 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/dotfiles/scripts:$PATH"
 
-# Path -- Go
-#export GOROOT=$HOME/go
-#export PATH="$PATH:$GOROOT/bin"
-#export PATH="/usr/local/Cellar/go-app-engine-64/1.6.3/share/go-app-engine-64:$PATH"
-
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# I like vi
+# vi > emacs
 export EDITOR="vim"
-set -o vi
+setopt VI
 
 # Aliases
 alias ls='ls -GF'
 alias be='bundle exec'
+
+# brew doctor: set from Aepsys and can cause brew Go builds to fail
+unset DYLD_INSERT_LIBRARIES
