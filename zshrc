@@ -22,17 +22,18 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(ruby rails git osx bundler)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # Path -- General
-#export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# Add dotfiles scripts path
 export PATH="$HOME/dotfiles/scripts:$PATH"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Add LaTeX Path
+export PATH="/usr/texbin:$PATH"
 
 # vi > emacs
 export EDITOR="vim"
@@ -40,7 +41,3 @@ setopt VI
 
 # Aliases
 alias ls='ls -GF'
-alias be='bundle exec'
-
-# brew doctor: set from Aepsys and can cause brew Go builds to fail
-unset DYLD_INSERT_LIBRARIES
